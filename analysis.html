@@ -1,1 +1,48 @@
-# analysis page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Attrition Analysis</title>
+</head>
+<body>
+    <header>
+        <h1>Attrition Analysis</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Analyze Attrition</h2>
+            <form method="GET" action="/analyze">
+                <label for="department">Department:</label>
+                <select id="department" name="department">
+                    <option value="" selected>All</option>
+                    <option value="HR">HR</option>
+                    <option value="Sales">Sales</option>
+                </select>
+                <label for="age">Age Range:</label>
+                <select id="age" name="age">
+                    <option value="" selected>All</option>
+                    <option value="20-30">20-30</option>
+                    <option value="31-40">31-40</option>
+                </select>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="" selected>All</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <button type="submit">Analyze</button>
+            </form>
+        </section>
+        <section>
+            <h2>Analysis Results</h2>
+            <img src="/static/analysis-chart.png" alt="Attrition trends graph">
+            <p>Use the filters to explore detailed insights.</p>
+        </section>
+    </main>
+    <footer>
+        <p>HR Analytics Dashboard &copy; 2025</p>
+    </footer>
+</body>
+</html>
