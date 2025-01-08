@@ -1,1 +1,49 @@
-# search 
+{% extends 'base.html' %}
+
+{% block title %}Employee Data{% endblock %}
+
+{% block content %}
+<section>
+    <header>
+        <h2>Employee Data</h2>
+    </header>
+    {% if employees %}
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Department</th>
+                <th scope="col">Role</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Years at Company</th>
+                <th scope="col">Attrition</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.department }}</td>
+                <td>{{ employee.role }}</td>
+                <td>{{ employee.gender }}</td>
+                <td>{{ employee.years_at_company }}</td>
+                <td>{{ employee.attrition }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No employee data available at this time.</p>
+    {% endif %}
+</section>
+
+<section>
+    <header>
+        <h2>Years at Company Distribution</h2>
+    </header>
+    <figure>
+        <img src="/static/years_distribution.png" alt="Distribution of years employees have been at the company">
+        <figcaption>Chart showing the distribution of employees' tenure at the company.</figcaption>
+    </figure>
+</section>
+{% endblock %}
