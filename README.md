@@ -19,15 +19,8 @@ HR-analysis-app/
 ├── H-R-IBM.csv            # Dataset file
 ├── requirements.txt       # Python dependencies
 └── README.md              # Project documentation
-```
 
 ---
-
-
-
-
-
-
 
 Developer Guide: Sprint Preparation
 1. Sprint Preparation
@@ -105,4 +98,5 @@ Developer Guide: Sprint Preparation
    └── Retrospective
        ├── Discuss successes and challenges
        └── Identify areas for improvement
+```
 
