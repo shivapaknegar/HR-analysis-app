@@ -1,0 +1,95 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Main Content */
+main {
+    padding: 1rem;
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #333;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+}
+
+.feature-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Forms */
+form {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+form input, form select, form button {
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 0.5rem;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 1rem;
+}
