@@ -1,1 +1,32 @@
-# mian page HTML
+{% extends 'base.html' %}
+
+{% block title %}Welcome to HR Dashboard{% endblock %}
+
+{% block content %}
+<section>
+    <header>
+        <h2>Welcome to the HR Analysis Dashboard</h2>
+    </header>
+    <p>This dashboard provides insights into employee data and trends to help you make informed HR decisions.</p>
+</section>
+
+<section>
+    <header>
+        <h2>Features</h2>
+    </header>
+    <ul>
+        <li>View detailed employee data.</li>
+        <li>Analyze trends such as attrition rates and department distributions.</li>
+        <li>Visualize data through easy-to-understand charts and graphs.</li>
+    </ul>
+</section>
+
+<section>
+    <header>
+        <h2>Get Started</h2>
+    </header>
+    <p>
+        Navigate to the <a href="/search">Employee Data</a> section to explore detailed insights and start analyzing trends.
+    </p>
+</section>
+{% endblock %}
