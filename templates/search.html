@@ -1,0 +1,38 @@
+# search #please test it 
+
+```html
+{% extends 'base.html' %}
+ 
+{% block title %}Dashboard{% endblock %}
+ 
+{% block content %}
+<h2>Employee Data</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Department</th>
+<th>Role</th>
+<th>Gender</th>
+<th>Years at Company</th>
+<th>Attrition</th>
+</tr>
+</thead>
+<tbody>
+        {% for employee in employees %}
+<tr>
+<td>{{ employee.id }}</td>
+<td>{{ employee.department }}</td>
+<td>{{ employee.role }}</td>
+<td>{{ employee.gender }}</td>
+<td>{{ employee.years_at_company }}</td>
+<td>{{ employee.attrition }}</td>
+</tr>
+        {% endfor %}
+</tbody>
+</table>
+ 
+<h2>Years at Company Distribution</h2>
+<img src="/static/years_distribution.png" alt="Years Distribution Chart">
+{% endblock %}
+```
