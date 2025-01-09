@@ -1,23 +1,16 @@
-# Please test it
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/styles.css">
-    <title>{% block title %}HR Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>HR Analysis App</title>
 </head>
 <body>
-    <header>
-        <h1>HR Analysis Dashboard</h1>
-    </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <p>HR Analysis App &copy; 2025</p>
-    </footer>
+    <h1>HR Analysis Application</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv">
+        <button type="submit">Upload and Analyze</button>
+    </form>
 </body>
-</html>p
-```
+</html>
