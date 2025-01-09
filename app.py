@@ -1,4 +1,3 @@
-# main flask app
 from flask import Flask, render_template
 from models import db, Employee
 from utils import load_data, generate_visualizations
@@ -11,8 +10,8 @@ db.init_app(app)
 
 @app.before_first_request
 def setup():
-    db.create_all()
-    load_data()
+    db.create_all()  # Create database schema
+    load_data()  # Load data from CSV
 
 @app.route('/')
 def dashboard():
