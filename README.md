@@ -20,6 +20,8 @@ HR-analysis-app/
 ├── requirements.txt       # Python dependencies
 └── README.md              # Project documentation
 
+
+Development Pros
 ---
 
 Developer Guide: Sprint Preparation
