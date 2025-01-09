@@ -1,1 +1,25 @@
-# analysis page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Data Analysis</title>
+</head>
+<body>
+    <h1>Data Analysis</h1>
+    <p>Total Rows: {{ data_summary['total_rows'] }}</p>
+    <p>Total Columns: {{ data_summary['total_columns'] }}</p>
+    <p>Null Values: {{ data_summary['null_values'] }}</p>
+
+    <h2>Generate Visualizations</h2>
+    <a href="/generate-graph/gender_distribution">Gender Distribution</a><br>
+    <a href="/generate-graph/average_income">Average Monthly Income</a><br>
+    <a href="/generate-graph/job_roles">Job Roles with Highest Count</a><br>
+    <a href="/generate-graph/department_count">Department Count</a><br>
+
+    {% if graph %}
+        <img src="{{ graph }}" alt="Generated Graph">
+    {% endif %}
+</body>
+</html>
