@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-    <title>IBM HR Analysis App</title>
+    <title>Data Analysis Dashboard</title>
 </head>
 <body>
     <div class="container">
-        <h1>IBM HR Analysis Application</h1>
+        <h1>Data Analysis Dashboard</h1>
         <p class="description">
-            Please upload a CSV file containing employee data. The file should have 35 columns and follow the required format. Use the upload box below to submit your file, and click "Analyze" to proceed.
+            Below is the summary of the uploaded dataset. Review the data quality metrics and key statistics to assess the dataset's integrity.
         </p>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <div class="upload-box">
-                <input type="file" name="file" accept=".csv">
-                <button type="submit">Upload and Analyze</button>
+
+        <!-- Data Quality Summary -->
+        <div class="dashboard">
+            <div class="card">
+                <h2>Total Rows</h2>
+                <p>{{ data_summary['total_rows'] }}</p>
             </div>
-        </form>
+            <div class="card">
+                <h2>Total Columns</h2>
+                <p>{{ data_summary['total_columns'] }}</p>
+            </div>
+            <div class="card">
+                <h2>Null Values</h2>
+                <p>{{ data_summary['null_values'] }}</p>
+            </div>
+            <div class="card">
+                <h2>Data Quality Score</h2>
+                <p>{{ data_quality_score }}%</p>
+            </div>
+        </div>
+
+        <!-- Additional Insights -->
+        <div class="insights">
+            <h2>Key Insights</h2>
+            <ul>
+                <li>Average Monthly Income: {{ insights['average_income'] }}</li>
+                <li>Department with Most Employees: {{ insights['largest_department'] }}</li>
+                <li>Role with Most Employees: {{ insights['largest_role'] }}</li>
+            </ul>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="actions">
+            <a href="/" class="button">Upload New File</a>
+        </div>
     </div>
 </body>
 </html>
