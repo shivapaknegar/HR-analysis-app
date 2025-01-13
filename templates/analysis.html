@@ -29,21 +29,34 @@
             </div>
             <div class="card">
                 <h2>Data Quality Score</h2>
-                <p>{{ data_quality_score }}%</p>
+                <p>{{ data_summary['data_quality_score'] }}%</p>
             </div>
         </div>
 
-        <!-- Additional Insights -->
+        <!-- Insights Section -->
         <div class="insights">
             <h2>Key Insights</h2>
             <ul>
                 <li>Average Monthly Income: {{ insights['average_income'] }}</li>
                 <li>Department with Most Employees: {{ insights['largest_department'] }}</li>
                 <li>Role with Most Employees: {{ insights['largest_role'] }}</li>
+                <li>Overall Attrition Rate: {{ insights['attrition_rate'] }}%</li>
+                <li>Department with Highest Attrition: {{ insights['highest_attrition_dept'] }}</li>
             </ul>
         </div>
 
-        <!-- Navigation Buttons -->
+        <!-- Attrition Matrix -->
+        <h2>Attrition Rate by Department</h2>
+        <div class="matrix">
+            {% for department, rate in insights['avg_satisfaction_dept'].items() %}
+            <div class="matrix-item" style="background-color: {% if rate > 75 %} #d4edda {% elif rate > 50 %} #fff3cd {% else %} #f8d7da {% endif %};">
+                <h3>{{ department }}</h3>
+                <p>{{ rate }}%</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Navigation -->
         <div class="actions">
             <a href="/" class="button">Upload New File</a>
         </div>
