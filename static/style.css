@@ -1,8 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #f4f6f9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,23 +11,25 @@ body {
 
 .container {
     text-align: center;
-    background: #ffffff; /* White background */
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2); /* Light blue shadow */
-    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.3);
+    padding: 40px;
     width: 90%;
-    max-width: 600px;
+    max-width: 900px;
 }
 
 h1 {
-    color: #007bff; /* Blue title */
+    color: #0056b3;
     margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .description {
     font-size: 1rem;
-    color: #333333; /* Dark gray text */
-    margin-bottom: 20px;
+    color: #555555;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
 .dashboard {
@@ -41,10 +43,10 @@ h1 {
 .card {
     background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    width: 120px;
+    width: 150px;
 }
 
 .card h2 {
@@ -59,41 +61,29 @@ h1 {
     color: #333333;
 }
 
-.insights {
+.section-title {
+    font-size: 1.5rem;
+    color: #0056b3;
+    margin: 30px 0 20px;
+}
+
+.insights-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
     text-align: left;
-    margin-top: 20px;
 }
 
-.insights h2 {
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.insights ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1rem;
-    color: #333333;
-}
-
-.actions {
-    margin-top: 20px;
-}
-
-.actions .button {
-    display: inline-block;
+.insights-table thead {
     background-color: #007bff;
     color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
 }
 
-.actions .button:hover {
-    background-color: #0056b3; /* Darker blue */
+.insights-table th, .insights-table td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
 }
+
 .matrix {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -107,16 +97,24 @@ h1 {
     color: #333;
     text-align: center;
     font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.matrix-item h3 {
-    margin-bottom: 10px;
+.actions {
+    margin-top: 30px;
 }
 
-.card {
-    text-align: center;
+.actions .button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
     border-radius: 8px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.actions .button:hover {
+    background-color: #0056b3;
 }
