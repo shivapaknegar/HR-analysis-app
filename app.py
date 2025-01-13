@@ -3,7 +3,6 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 
-# Initialize Flask application
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
