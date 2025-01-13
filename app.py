@@ -59,22 +59,27 @@ def analysis():
     data_quality_score = round((1 - (null_values / (dataframe.shape[0] * dataframe.shape[1]))) * 100, 2)
 
     # Key insights
-    average_income = dataframe['MonthlyIncome'].mean()
-    largest_department = dataframe['Department'].value_counts().idxmax()
-    largest_role = dataframe['JobRole'].value_counts().idxmax()
-
-    data_summary = {
+    insights = {
         'total_rows': dataframe.shape[0],
         'total_columns': dataframe.shape[1],
-        'null_values': null_values
-    }
-    insights = {
-        'average_income': f"${average_income:.2f}",
-        'largest_department': largest_department,
-        'largest_role': largest_role
+        'null_values': null_values,
+        'average_income': f"${dataframe['MonthlyIncome'].mean():.2f}",
+        'largest_department': dataframe['Department'].value_counts().idxmax(),
+        'largest_role': dataframe['JobRole'].value_counts().idxmax(),
+        'attrition_rate': round((dataframe['Attrition'].value_counts(normalize=True).get('Yes', 0) * 100), 2),
+        'highest_attrition_dept': dataframe[dataframe['Attrition'] == 'Yes']['Department'].value_counts().idxmax(),
+        'age_distribution': dataframe['Age'].describe().to_dict(),
+        'avg_satisfaction_dept': dataframe.groupby('Department')['JobSatisfaction'].mean().to_dict(),
+        'job_level_counts': dataframe['JobLevel'].value_counts().to_dict(),
+        'work_life_balance': dataframe['WorkLifeBalance'].value_counts(normalize=True).to_dict(),
     }
 
-    return render_template('analysis.html', data_summary=data_summary, data_quality_score=data_quality_score, insights=insights)
+    return render_template('analysis.html', data_summary={
+        'total_rows': insights['total_rows'],
+        'total_columns': insights['total_columns'],
+        'null_values': insights['null_values'],
+        'data_quality_score': data_quality_score
+    }, insights=insights)
 
 @app.route('/generate-graph/<graph_type>')
 def generate_graph(graph_type):
@@ -105,6 +110,24 @@ def generate_graph(graph_type):
         plt.savefig('static/department_count.png')
         plt.close()
         return render_template('analysis.html', graph='static/department_count.png')
+
+    elif graph_type == 'attrition_rate':
+        attrition_counts = dataframe['Attrition'].value_counts()
+        attrition_counts.plot(kind='pie', autopct='%1.1f%%', colors=['green', 'red'])
+        plt.title('Attrition Rate')
+        plt.ylabel('')
+        plt.savefig('static/attrition_rate.png')
+        plt.close()
+        return render_template('analysis.html', graph='static/attrition_rate.png')
+
+    elif graph_type == 'income_distribution':
+        dataframe['MonthlyIncome'].plot(kind='hist', bins=20, color='blue', alpha=0.7)
+        plt.title('Monthly Income Distribution')
+        plt.xlabel('Monthly Income')
+        plt.ylabel('Frequency')
+        plt.savefig('static/income_distribution.png')
+        plt.close()
+        return render_template('analysis.html', graph='static/income_distribution.png')
 
     else:
         flash('Invalid graph type.')
