@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-    <title>Data Analysis</title>
+    <title>IBM HR Analysis App</title>
 </head>
 <body>
-    <h1>Data Analysis</h1>
-    <p>Total Rows: {{ data_summary['total_rows'] }}</p>
-    <p>Total Columns: {{ data_summary['total_columns'] }}</p>
-    <p>Null Values: {{ data_summary['null_values'] }}</p>
-
-    <h2>Generate Visualizations</h2>
-    <a href="/generate-graph/gender_distribution">Gender Distribution</a><br>
-    <a href="/generate-graph/average_income">Average Monthly Income</a><br>
-    <a href="/generate-graph/job_roles">Job Roles with Highest Count</a><br>
-    <a href="/generate-graph/department_count">Department Count</a><br>
-
-    {% if graph %}
-        <img src="{{ graph }}" alt="Generated Graph">
-    {% endif %}
+    <div class="container">
+        <h1>IBM HR Analysis Application</h1>
+        <p class="description">
+            Please upload a CSV file containing employee data. The file should have 35 columns and follow the required format. Use the upload box below to submit your file, and click "Analyze" to proceed.
+        </p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="upload-box">
+                <input type="file" name="file" accept=".csv">
+                <button type="submit">Upload and Analyze</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
