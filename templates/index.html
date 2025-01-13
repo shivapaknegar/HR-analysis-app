@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/style.css">
-    <title>IBM HR Analysis App</title>
+    <title>Employee Data Analysis</title>
 </head>
 <body>
     <div class="container">
-        <h1>IBM HR Analysis Application</h1>
+        <h1>Employee Data Analysis Tool</h1>
         <p class="description">
-            Please upload a CSV file containing employee data. The file should have 35 columns and follow the required format. Use the upload box below to submit your file, and click "Analyze" to proceed.
+            Please upload an Excel file containing employee data. Ensure the file includes 35 columns and follows the specified format. Use the upload box below to submit your file, then click "Analyze" to proceed.
         </p>
         <form action="/upload" method="POST" enctype="multipart/form-data">
-            <div class="upload-box">
-                <input type="file" name="file" accept=".csv">
-                <button type="submit">Upload and Analyze</button>
+            <div class="upload-section">
+                <input type="file" name="file" accept=".xlsx, .xls">
+                <button type="submit" class="upload-button">Upload and Analyze</button>
             </div>
         </form>
     </div>
