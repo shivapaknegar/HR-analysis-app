@@ -40,7 +40,7 @@ def upload_file():
     if file:
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
         file.save(filepath)
-        dataframe = pd.read_excel(filepath)
+        dataframe = pd.read_csv(filepath)
         flash('File uploaded successfully!')
         return redirect(url_for('analysis'))
 
@@ -59,25 +59,26 @@ def analysis():
     data_quality_score = round((1 - (null_values / (dataframe.shape[0] * dataframe.shape[1]))) * 100, 2)
 
     # Key insights
-    attrition_by_department = dataframe.groupby('Department')['Attrition'].apply(lambda x: (x == 'Yes').mean() * 100).round(2).to_dict()
     insights = {
         'total_rows': dataframe.shape[0],
         'total_columns': dataframe.shape[1],
         'null_values': null_values,
-        'data_quality_score': data_quality_score,
         'average_income': f"${dataframe['MonthlyIncome'].mean():.2f}",
         'largest_department': dataframe['Department'].value_counts().idxmax(),
         'largest_role': dataframe['JobRole'].value_counts().idxmax(),
         'attrition_rate': round((dataframe['Attrition'].value_counts(normalize=True).get('Yes', 0) * 100), 2),
-        'highest_attrition_dept': max(attrition_by_department, key=attrition_by_department.get),
-        'attrition_by_department': attrition_by_department
+        'highest_attrition_dept': dataframe[dataframe['Attrition'] == 'Yes']['Department'].value_counts().idxmax(),
+        'age_distribution': dataframe['Age'].describe().to_dict(),
+        'avg_satisfaction_dept': {k: round(v, 2) for k, v in dataframe.groupby('Department')['JobSatisfaction'].mean().to_dict().items()},
+        'job_level_counts': dataframe['JobLevel'].value_counts().to_dict(),
+        'work_life_balance': {k: round(v * 100, 2) for k, v in dataframe['WorkLifeBalance'].value_counts(normalize=True).to_dict().items()},
     }
 
     return render_template('analysis.html', data_summary={
         'total_rows': insights['total_rows'],
         'total_columns': insights['total_columns'],
         'null_values': insights['null_values'],
-        'data_quality_score': insights['data_quality_score']
+        'data_quality_score': data_quality_score
     }, insights=insights)
 
 @app.route('/generate-graph/<graph_type>')
@@ -112,7 +113,7 @@ def generate_graph(graph_type):
 
     elif graph_type == 'attrition_rate':
         attrition_counts = dataframe['Attrition'].value_counts()
-        attrition_counts.plot(kind='pie', autopct='%1.1f%%', colors=['green', 'red'])
+        attrition_counts.plot(kind='pie', autopct='%1.2f%%', colors=['green', 'red'])
         plt.title('Attrition Rate')
         plt.ylabel('')
         plt.savefig('static/attrition_rate.png')
