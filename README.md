@@ -1,7 +1,7 @@
 # HR-analysis-app
 
 
-### Project File Structure ###
+## Project File Structure ###
 
 Here is how you can structure your project into separate files and directories:
 
