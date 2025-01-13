@@ -66,11 +66,11 @@
             </tbody>
         </table>
 
-        <!-- Attrition Matrix -->
+        <!-- Attrition Rate by Department -->
         <h2 class="section-title">Attrition Rate by Department</h2>
         <div class="matrix">
-            {% for department, rate in insights['avg_satisfaction_dept'].items() %}
-            <div class="matrix-item" style="background-color: {% if rate > 75 %} #d4edda {% elif rate > 50 %} #fff3cd {% else %} #f8d7da {% endif %};">
+            {% for department, rate in insights['attrition_by_department'].items() %}
+            <div class="matrix-item" style="background-color: {% if rate > 5 %} #f8d7da {% elif rate > 2.5 %} #fff3cd {% else %} #d4edda {% endif %};">
                 <h3>{{ department }}</h3>
                 <p>{{ rate }}%</p>
             </div>
