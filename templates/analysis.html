@@ -1,82 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/static/style.css">
-<title>Data Analysis Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Data Analysis Dashboard</title>
 </head>
 <body>
-<div class="container">
-<h1>Data Analysis Dashboard</h1>
-<p class="description">
-           Below is the summary of the uploaded dataset. Review the data quality metrics, key statistics, and insights for actionable decisions.
-</p>
-<!-- Data Quality Summary -->
-<div class="dashboard">
-<div class="card">
-<h2>Total Rows</h2>
-<p>{{ data_summary['total_rows'] }}</p>
-</div>
-<div class="card">
-<h2>Total Columns</h2>
-<p>{{ data_summary['total_columns'] }}</p>
-</div>
-<div class="card">
-<h2>Null Values</h2>
-<p>{{ data_summary['null_values'] }}</p>
-</div>
-<div class="card">
-<h2>Data Quality Score</h2>
-<p>{{ data_summary['data_quality_score'] }}%</p>
-</div>
-</div>
-<!-- Key Insights -->
-<h2 class="section-title">Key Insights</h2>
-<table class="insights-table">
-<thead>
-<tr>
-<th>Metric</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Average Monthly Income</td>
-<td>{{ insights['average_income'] }}</td>
-</tr>
-<tr>
-<td>Department with Most Employees</td>
-<td>{{ insights['largest_department'] }}</td>
-</tr>
-<tr>
-<td>Role with Most Employees</td>
-<td>{{ insights['largest_role'] }}</td>
-</tr>
-<tr>
-<td>Overall Attrition Rate</td>
-<td>{{ insights['attrition_rate'] }}%</td>
-</tr>
-<tr>
-<td>Department with Highest Attrition</td>
-<td>{{ insights['highest_attrition_dept'] }}</td>
-</tr>
-</tbody>
-</table>
-<!-- Attrition Matrix -->
-<h2 class="section-title">Attrition Rate by Department</h2>
-<div class="matrix">
-           {% for department, rate in insights['avg_satisfaction_dept'].items() %}
-<div class="matrix-item" style="background-color: {% if rate > 75 %} #d4edda {% elif rate > 50 %} #fff3cd {% else %} #f8d7da {% endif %};">
-<h3>{{ department }}</h3>
-<p>{{ rate }}%</p>
-</div>
-           {% endfor %}
-</div>
-<!-- Navigation -->
-<div class="actions">
-<a href="/" class="button">Upload New File</a>
-</div>
-</div>
+    <div class="container">
+        <h1>Data Analysis Dashboard</h1>
+        <p class="description">
+            Below is the summary of the uploaded dataset. Review the data quality metrics, key statistics, and insights for actionable decisions.
+        </p>
+
+        <!-- Data Quality Summary -->
+        <div class="dashboard">
+            <div class="card">
+                <h2>Total Rows</h2>
+                <p>{{ data_summary['total_rows'] }}</p>
+            </div>
+            <div class="card">
+                <h2>Total Columns</h2>
+                <p>{{ data_summary['total_columns'] }}</p>
+            </div>
+            <div class="card">
+                <h2>Null Values</h2>
+                <p>{{ data_summary['null_values'] }}</p>
+            </div>
+            <div class="card">
+                <h2>Data Quality Score</h2>
+                <p>{{ data_summary['data_quality_score'] }}%</p>
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <h2 class="section-title">Key Insights</h2>
+        <table class="insights-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Average Monthly Income</td>
+                    <td>{{ insights['average_income'] }}</td>
+                </tr>
+                <tr>
+                    <td>Department with Most Employees</td>
+                    <td>{{ insights['largest_department'] }}</td>
+                </tr>
+                <tr>
+                    <td>Role with Most Employees</td>
+                    <td>{{ insights['largest_role'] }}</td>
+                </tr>
+                <tr>
+                    <td>Overall Attrition Rate</td>
+                    <td>{{ insights['attrition_rate'] }}%</td>
+                </tr>
+                <tr>
+                    <td>Department with Highest Attrition</td>
+                    <td>{{ insights['highest_attrition_dept'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Attrition Matrix -->
+        <h2 class="section-title">Attrition Rate by Department</h2>
+        <div class="matrix">
+            {% for department, rate in insights['avg_satisfaction_dept'].items() %}
+            <div class="matrix-item" style="background-color: {% if rate > 75 %} #d4edda {% elif rate > 50 %} #fff3cd {% else %} #f8d7da {% endif %};">
+                <h3>{{ department }}</h3>
+                <p>{{ rate }}%</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Navigation -->
+        <div class="actions">
+            <a href="/" class="button">Upload New File</a>
+        </div>
+    </div>
 </body>
 </html>
