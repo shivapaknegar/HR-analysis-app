@@ -1,8 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #f4f6f9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,23 +11,25 @@ body {
 
 .container {
     text-align: center;
-    background: #ffffff; /* White background */
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2); /* Light blue shadow */
-    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.3);
+    padding: 40px;
     width: 90%;
-    max-width: 600px;
+    max-width: 900px;
 }
 
 h1 {
-    color: #007bff; /* Blue title */
+    color: #0056b3;
     margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .description {
     font-size: 1rem;
-    color: #333333; /* Dark gray text */
-    margin-bottom: 20px;
+    color: #555555;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
 .dashboard {
@@ -41,10 +43,10 @@ h1 {
 .card {
     background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    width: 120px;
+    width: 150px;
 }
 
 .card h2 {
@@ -59,25 +61,47 @@ h1 {
     color: #333333;
 }
 
-.insights {
+.section-title {
+    font-size: 1.5rem;
+    color: #0056b3;
+    margin: 30px 0 20px;
+}
+
+.insights-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
     text-align: left;
+}
+
+.insights-table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+.insights-table th, .insights-table td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+.matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
     margin-top: 20px;
 }
 
-.insights h2 {
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.insights ul {
-    list-style: none;
-    padding: 0;
-    font-size: 1rem;
-    color: #333333;
+.matrix-item {
+    padding: 15px;
+    border-radius: 8px;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .actions {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .actions .button {
@@ -85,35 +109,94 @@ h1 {
     background-color: #007bff;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 8px;
     font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .actions .button:hover {
-    background-color: #0056b3; /* Darker blue */
+    background-color: #0056b3;
 }
-.matrix {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-.matrix-item {
-    padding: 15px;
-    border-radius: 8px;
-    color: #333;
+
+.container {
     text-align: center;
-    font-weight: bold;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.3);
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
 }
-.matrix-item h3 {
-    margin-bottom: 10px;
+
+h1 {
+    color: #0056b3;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
-.card {
-    text-align: center;
+
+.description {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.file-input {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     border-radius: 8px;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.upload-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .file-input {
+        font-size: 0.9rem;
+    }
+
+    .upload-button {
+        font-size: 0.9rem;
+    }
 }

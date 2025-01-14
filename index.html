@@ -3,33 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>HR Analytics Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Employee Data Analysis</title>
 </head>
 <body>
-    <header>
-        <h1>HR Analytics Dashboard</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Welcome</h2>
-            <p>Manage and analyze HR data effectively with powerful tools.</p>
-        </section>
-        <section class="features">
-            <div class="feature-card">
-                <h3>Employee Search and Filtering</h3>
-                <p>Search and filter employees by various criteria.</p>
-                <a href="/search">Explore</a>
+    <div class="container">
+        <h1>Employee Data Analysis Tool</h1>
+        <p class="description">
+            Please upload a CSV file containing employee data. The file should have 35 columns and follow the required format. Use the upload box below to submit your file, and click "Analyze" to view insights.
+        </p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="upload-box">
+                <input type="file" name="file" accept=".csv" class="file-input">
+                <button type="submit" class="upload-button">Upload and Analyze</button>
             </div>
-            <div class="feature-card">
-                <h3>Attrition Analysis</h3>
-                <p>Identify trends and retention strategies using visual analytics.</p>
-                <a href="/analysis">Analyze</a>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>HR Analytics Dashboard &copy; 2025</p>
-    </footer>
+        </form>
+    </div>
 </body>
 </html>

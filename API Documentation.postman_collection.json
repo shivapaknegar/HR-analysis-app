@@ -1,0 +1,266 @@
+{
+    "info": {
+        "_postman_id": "6495a8bd-348e-435f-8b7a-0f8036874600",
+        "name": "API Documentation",
+        "description": "This documentation covers the API for the IBM HR analysis",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "40674386"
+    },
+    "item": [
+        {
+            "name": "Analysis",
+            "item": [
+                {
+                    "name": "Upload file",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript",
+                                "packages": {}
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "followOriginalHttpMethod": false,
+                        "followRedirects": true
+                    },
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "description": "The IBM HR data CSV file",
+                                    "type": "file",
+                                    "src": "postman-cloud:///1efd201e-9bad-42f0-a1cb-40049718d18e"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/upload",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "upload"
+                            ]
+                        },
+                        "description": "Gets information about the authenticated user."
+                    },
+                    "response": [
+                        {
+                            "name": "Successful Response",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "formdata",
+                                    "formdata": [
+                                        {
+                                            "key": "file",
+                                            "description": "The IBM HR data CSV file",
+                                            "type": "file",
+                                            "src": "postman-cloud:///1efd201e-9bad-42f0-a1cb-40049718d18e"
+                                        }
+                                    ]
+                                },
+                                "url": {
+                                    "raw": "http://localhost:5000/upload",
+                                    "protocol": "http",
+                                    "host": [
+                                        "localhost"
+                                    ],
+                                    "port": "5000",
+                                    "path": [
+                                        "upload"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "html",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/html",
+                                    "name": "Content-Type",
+                                    "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                    },
+                                    "type": "text"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"stylesheet\" href=\"/static/style.css\">\n    <title>Data Analysis Dashboard</title>\n</head>\n\n<body>\n    <div class=\"container\">\n        <h1>Data Analysis Dashboard</h1>\n        <p class=\"description\">\n            Below is the summary of the uploaded dataset. Review the data quality metrics and key statistics to assess\n            the dataset's integrity.\n        </p>\n\n        <!-- Data Quality Summary -->\n        <div class=\"dashboard\">\n            <div class=\"card\">\n                <h2>Total Rows</h2>\n                <p>1470</p>\n            </div>\n            <div class=\"card\">\n                <h2>Total Columns</h2>\n                <p>35</p>\n            </div>\n            <div class=\"card\">\n                <h2>Null Values</h2>\n                <p>0</p>\n            </div>\n            <div class=\"card\">\n                <h2>Data Quality Score</h2>\n                <p>100.0%</p>\n            </div>\n        </div>\n\n        <!-- Additional Insights -->\n        <div class=\"insights\">\n            <h2>Key Insights</h2>\n            <ul>\n                <li>Average Monthly Income: $6502.93</li>\n                <li>Department with Most Employees: Research &amp; Development</li>\n                <li>Role with Most Employees: Sales Executive</li>\n            </ul>\n        </div>\n\n        <!-- Navigation Buttons -->\n        <div class=\"actions\">\n            <a href=\"/\" class=\"button\">Upload New File</a>\n        </div>\n    </div>\n</body>\n\n</html>"
+                        }
+                    ]
+                },
+                {
+                    "name": "Data analysis",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    ""
+                                ],
+                                "type": "text/javascript",
+                                "packages": {}
+                            }
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "followOriginalHttpMethod": false,
+                        "followRedirects": true,
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "description": "The IBM HR data CSV file",
+                                    "type": "file",
+                                    "src": "postman-cloud:///1efd201e-9bad-42f0-a1cb-40049718d18e"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://localhost:5000/analysis",
+                            "protocol": "http",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000",
+                            "path": [
+                                "analysis"
+                            ]
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Data analysis",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "formdata",
+                                    "formdata": [
+                                        {
+                                            "key": "file",
+                                            "description": "The IBM HR data CSV file",
+                                            "type": "file",
+                                            "src": "postman-cloud:///1efd201e-9bad-42f0-a1cb-40049718d18e"
+                                        }
+                                    ]
+                                },
+                                "url": {
+                                    "raw": "http://localhost:5000/analysis",
+                                    "protocol": "http",
+                                    "host": [
+                                        "localhost"
+                                    ],
+                                    "port": "5000",
+                                    "path": [
+                                        "analysis"
+                                    ]
+                                }
+                            },
+                            "_postman_previewlanguage": null,
+                            "header": null,
+                            "cookie": [],
+                            "body": null
+                        },
+                        {
+                            "name": "Data analysis",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "body": {
+                                    "mode": "formdata",
+                                    "formdata": [
+                                        {
+                                            "key": "file",
+                                            "description": "The IBM HR data CSV file",
+                                            "type": "file",
+                                            "src": "postman-cloud:///1efd201e-9bad-42f0-a1cb-40049718d18e"
+                                        }
+                                    ]
+                                },
+                                "url": {
+                                    "raw": "http://localhost:5000/analysis",
+                                    "protocol": "http",
+                                    "host": [
+                                        "localhost"
+                                    ],
+                                    "port": "5000",
+                                    "path": [
+                                        "analysis"
+                                    ]
+                                }
+                            },
+                            "_postman_previewlanguage": null,
+                            "header": null,
+                            "cookie": [],
+                            "body": null
+                        }
+                    ]
+                }
+            ],
+            "description": "The `/me` endpoints let you manage information about the authenticated user."
+        }
+    ],
+    "auth": {
+        "type": "apikey",
+        "apikey": [
+            {
+                "key": "key",
+                "value": "X-API-Key",
+                "type": "string"
+            },
+            {
+                "key": "value",
+                "value": "{{token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "https://farming-simulator.pstmn.io"
+        }
+    ]
+}
